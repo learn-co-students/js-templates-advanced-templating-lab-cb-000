@@ -19,12 +19,13 @@
     <script src="test/index-test.js"></script>
 
     <script id="recipe-form-template" type="text/x-handlebars-template">
-      <form onsubmit="handleSubmit()" id="recipe-form">
-        Name: <input type="text" name="name" value="{{name}}" id="name">
-        Description: <input type="text" name="description" value="{{description}}" id="description">
+      <form onsubmit="handleSubmit();return false;" id="recipe-form">
+        Name: <input type="text" name="name" value="{{name}}" id="name"><br>
+        Description: <input type="text" name="description" value="{{description}}" id="description"><br>
         {{#each ingredients}}
-          Ingredient {{@index}}: <input type="text" name="ingredients" value="{{this.value}}" id="ingredient[{{@index}}]">
+          Ingredient {{@index}}: <input type="text" name="ingredients" value="{{this}}" id="ingredient[{{@index}}]"><br>
         {{/each}}
+        <input type="submit">
       </form>
     </script>
 
